@@ -133,10 +133,10 @@ function downloadFile({ files }, callback) {
 }
 
 function updateIndexes(i) {
+	retries = 0
+
 	if (i <= fileArrayForDownload[objectIndex].url_array.length - 1) {
 		urlIndex = i
-
-		retries = 0
 
 		downloadAll(
 			{
@@ -154,8 +154,6 @@ function updateIndexes(i) {
 		if (objectIndex + 1 <= fileArrayForDownload.length - 1) {
 			objectIndex = objectIndex + 1
 			urlIndex = 0
-
-			retries = 0
 
 			downloadAll(
 				{
