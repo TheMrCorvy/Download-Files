@@ -3,25 +3,24 @@ const fs = require("fs")
 
 let retries = 0
 
-const files = [
+let objectIndex = 0
+let urlIndex = 0
+
+const fileArrayForDownload = [
 	{
-		directory: "Kaguya-Sama",
-		fileName: "Kaguya-Sama",
-		url_array: [
-			"https://descarga-directa.fukou-da.net/0:/Anime/K/Kaguya-sama%20wa%20Kokurasetai%20S2%20BD/[HanF]%20Kaguya-sama%20wa%20Kokurasetai%20S2%20-%2008%20(BDRip%201920x1080%20H264%20AAC).mp4",
-		],
-		format: "mp4",
+		directory: "Akame Ga Kill",
+		fileName: "Akame Ga Kill",
+		url_array: ["https://dondon.media/wp-content/uploads/2022/04/episodes-akame-ga-kill.jpg"],
 	},
 	{
 		directory: "To Aru Majutsu No Index/To Aru Majutsu No Index II/Ovas",
 		fileName: "To Aru Majutsu No Index III",
 		url_array: ["https://dondon.media/wp-content/uploads/2022/04/episodes-akame-ga-kill.jpg"],
-		format: "jpg",
 	},
 ]
 
-function formatFileName({ path, i, fileName, format }) {
-	return `${path}/${i < 10 ? "0" + i : i} - ${fileName}.${format}`
+function formatFileName({ path, i, fileName }) {
+	return `${path}/${i < 10 ? "0" + i : i} - ${fileName}.jpg`
 }
 
 function createDirectory(directory) {
@@ -40,10 +39,16 @@ function createDirectory(directory) {
 	})
 }
 
-function downloadFile({ files, index, format }, callback) {
+function downloadFile({ files }, callback) {
 	let lastProgress = 0
 
-	const req = https.get(files.url_array[0], (res) => {
+	console.log({
+		files,
+		urlIndex,
+		objectIndex,
+	})
+
+	const req = https.get(files.url_array[urlIndex], (res) => {
 		const len = parseInt(res.headers["content-length"], 10)
 		let cur = ""
 		const total = len / 1048576
@@ -52,9 +57,9 @@ function downloadFile({ files, index, format }, callback) {
 			if (retries < 3) {
 				retries++
 
-				console.log("Retry Nº " + retries)
+				console.log(files.fileName + " - Retry Nº " + retries)
 
-				return downloadFile({ files, index, format }, callback)
+				return downloadFile({ files }, callback)
 			} else {
 				console.error("The download keeps failing...")
 
@@ -69,7 +74,11 @@ function downloadFile({ files, index, format }, callback) {
 		}
 
 		const fileStream = fs.createWriteStream(
-			formatFileName({ path: files.directory, i: index, fileName: files.fileName, format })
+			formatFileName({
+				path: files.directory,
+				i: urlIndex + 1,
+				fileName: files.fileName,
+			})
 		)
 
 		fileStream.on("error", (err) => {
@@ -85,7 +94,7 @@ function downloadFile({ files, index, format }, callback) {
 
 			const downloadedAmount = ((100.0 * cur.length) / len).toFixed(2)
 
-			if (downloadedAmount % 5 === 0 && downloadedAmount !== lastProgress) {
+			if (downloadedAmount % 10 === 0 && downloadedAmount !== lastProgress) {
 				console.log(downloadedAmount + "%")
 
 				lastProgress = downloadedAmount
@@ -100,21 +109,76 @@ function downloadFile({ files, index, format }, callback) {
 			console.log("Finished writting document!")
 		})
 
-		fileStream.on("close", () => callback(index))
+		fileStream.on("close", () => callback(urlIndex + 1))
 	})
 
 	req.on("error", (err) => {
 		console.log(err)
 
 		console.error("There was an error doing the request...")
+
+		if (retries < 3) {
+			retries++
+
+			console.log(files.fileName + " - Retry Nº " + retries)
+
+			return downloadFile({ files }, callback)
+		} else {
+			console.error("The download keeps failing...")
+
+			return
+		}
 	})
 }
 
-downloadFile(
-	{
-		files: files[0],
-		index: 1,
-		format: files[0].format,
-	},
-	(i) => console.log(i)
-)
+function updateIndexes(i) {
+	if (i <= fileArrayForDownload[objectIndex].url_array.length) {
+		urlIndex = i
+
+		console.log(fileArrayForDownload)
+
+		downloadAll(
+			{
+				files: fileArrayForDownload[objectIndex],
+			},
+			updateIndexes
+		)
+
+		return
+	} else {
+		console.log(" ")
+		console.log("- - - - - - - - - - - - - - - - - - - -")
+		console.log("Continuing with the next Anime...")
+
+		if (objectIndex + 1 <= files.length) {
+			objectIndex = objectIndex + 1
+			urlIndex = 0
+
+			downloadAll(
+				{
+					files: fileArrayForDownload[objectIndex],
+				},
+				updateIndexes
+			)
+
+			return
+		}
+	}
+
+	console.log(" ")
+	console.log("- - - - - - - - - - - - - - - - - - - -")
+	console.log("FINISHED ALL DOWNLOADS!!")
+	console.log(" ")
+	console.log("Daru: Mission Complete!!")
+}
+
+function downloadAll() {
+	downloadFile(
+		{
+			files: fileArrayForDownload[objectIndex],
+		},
+		updateIndexes
+	)
+}
+
+downloadAll()
