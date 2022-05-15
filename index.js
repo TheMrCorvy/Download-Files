@@ -19,6 +19,11 @@ const files = [
 	},
 ]
 
+function formatFileName({ path, index, fileName, format }) {
+	//	   path of file		numer of file in array			video 1     mp4
+	return `${path}/${index < 10 ? "0" + index : index} - ${fileName}.${format}`
+}
+
 function downloadFile({ files, index, format, callback }) {
 	https.get(files.url_array[0], (res) => {
 		if (!fs.existsSync(files.directory)) {
