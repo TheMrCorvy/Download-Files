@@ -1,6 +1,8 @@
 const https = require("https")
 const fs = require("fs")
 
+let retries = 0
+
 const files = [
 	{
 		directory: "Kaguya-Sama",
@@ -46,7 +48,19 @@ function downloadFile({ files, index, format }, callback) {
 		let cur = ""
 		const total = len / 1048576
 
-		console.log({ len, total })
+		if (total == "0.00" || isNaN(total)) {
+			if (retries < 3) {
+				retries++
+
+				console.log("Retry Nº " + retries)
+
+				return downloadFile({ files, index, format }, callback)
+			} else {
+				console.error("The download keeps failing...")
+
+				return
+			}
+		}
 
 		console.log("Download Started! Total Size: " + total.toFixed(2) + "mb")
 
