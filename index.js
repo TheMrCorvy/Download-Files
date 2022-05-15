@@ -43,7 +43,7 @@ function createDirectory(directory) {
 }
 
 function downloadFile({ files, index, format, callback }) {
-	https.get(files.url_array[0], (res) => {
+	const req = https.get(files.url_array[0], (res) => {
 		if (!fs.existsSync(files.directory)) {
 			createDirectory(files.directory)
 		}
@@ -55,7 +55,7 @@ function downloadFile({ files, index, format, callback }) {
 		fileStream.on("error", (err) => {
 			console.log(err)
 
-			console.log("There was an error writting the file...")
+			console.error("There was an error writting the file...")
 		})
 
 		res.pipe(fileStream)
@@ -64,6 +64,12 @@ function downloadFile({ files, index, format, callback }) {
 			fileStream.close()
 			console.log("Finished!")
 		})
+	})
+
+	req.on("error", (err) => {
+		console.log(err)
+
+		console.error("There was an error doing the request...")
 	})
 }
 
