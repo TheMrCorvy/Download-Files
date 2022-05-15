@@ -19,8 +19,22 @@ const files = [
 	},
 ]
 
-function downloadFiles() {
-	console.log("Its Alive!!")
+function downloadFile({ files, index, format, callback }) {
+	https.get(files.url_array[0], (res) => {
+		if (!fs.existsSync(files.directory)) {
+			createDirectory(files.directory)
+		}
+
+		const fileStream = fs.createWriteStream(
+			formatFileName({ path: files.directory, index, fileName: files.fileName, format })
+		)
+		res.pipe(fileStream)
+
+		fileStream.on("finish", () => {
+			fileStream.close()
+			console.log("Finished!")
+		})
+	})
 }
 
-downloadFiles()
+downloadFile({ files: files[1], index: 1, format: "jpg" })
