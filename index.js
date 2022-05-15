@@ -24,6 +24,22 @@ function formatFileName({ path, index, fileName, format }) {
 	return `${path}/${index < 10 ? "0" + index : index} - ${fileName}.${format}`
 }
 
+function createDirectory(directory) {
+	const arrDir = directory.split("/")
+
+	let directoriesCreated = "./"
+
+	arrDir.forEach((dir) => {
+		if (!fs.existsSync(directoriesCreated + dir)) {
+			fs.mkdirSync(directoriesCreated + dir)
+
+			directoriesCreated = directoriesCreated + dir + "/"
+
+			console.log(`Folder ${dir} created!`)
+		}
+	})
+}
+
 function downloadFile({ files, index, format, callback }) {
 	https.get(files.url_array[0], (res) => {
 		if (!fs.existsSync(files.directory)) {
