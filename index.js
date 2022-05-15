@@ -42,12 +42,6 @@ function createDirectory(directory) {
 function downloadFile({ files }, callback) {
 	let lastProgress = 0
 
-	console.log({
-		files,
-		urlIndex,
-		objectIndex,
-	})
-
 	const req = https.get(files.url_array[urlIndex], (res) => {
 		const len = parseInt(res.headers["content-length"], 10)
 		let cur = ""
@@ -132,10 +126,8 @@ function downloadFile({ files }, callback) {
 }
 
 function updateIndexes(i) {
-	if (i <= fileArrayForDownload[objectIndex].url_array.length) {
+	if (i <= fileArrayForDownload[objectIndex].url_array.length - 1) {
 		urlIndex = i
-
-		console.log(fileArrayForDownload)
 
 		downloadAll(
 			{
@@ -150,7 +142,7 @@ function updateIndexes(i) {
 		console.log("- - - - - - - - - - - - - - - - - - - -")
 		console.log("Continuing with the next Anime...")
 
-		if (objectIndex + 1 <= files.length) {
+		if (objectIndex + 1 <= fileArrayForDownload.length - 1) {
 			objectIndex = objectIndex + 1
 			urlIndex = 0
 
