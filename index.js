@@ -37,7 +37,7 @@ function createDirectory(directory) {
 	})
 }
 
-function downloadFile({ files, index, format, callback }) {
+function downloadFile({ files, index, format }, callback) {
 	const req = https.get(files.url_array[0], (res) => {
 		if (!fs.existsSync(files.directory)) {
 			createDirectory(files.directory)
@@ -57,8 +57,9 @@ function downloadFile({ files, index, format, callback }) {
 
 		fileStream.on("finish", () => {
 			fileStream.close()
-			console.log("Finished!")
 		})
+
+		fileStream.on("close", () => callback(index))
 	})
 
 	req.on("error", (err) => {
@@ -68,4 +69,11 @@ function downloadFile({ files, index, format, callback }) {
 	})
 }
 
-downloadFile({ files: files[1], index: 1, format: files[1].format })
+downloadFile(
+	{
+		files: files[1],
+		index: 1,
+		format: files[1].format,
+	},
+	(i) => console.log(i)
+)
