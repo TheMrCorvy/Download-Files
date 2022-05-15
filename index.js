@@ -10,12 +10,37 @@ const fileArrayForDownload = [
 	{
 		directory: "Akame Ga Kill",
 		fileName: "Akame Ga Kill",
-		url_array: ["https://dondon.media/wp-content/uploads/2022/04/episodes-akame-ga-kill.jpg"],
+		url_array: [
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_01[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_02[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_03[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_04[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_05[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_06[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_07[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_08[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_09[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_10[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_11[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_12[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_13[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_14[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_15[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_16[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_17[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_18[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_19[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_20[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_21[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_22[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_23[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_24[FINAL][HD][X264-AAC][1280X720][Sub_Esp].mp4",
+		],
 	},
 	{
-		directory: "To Aru Majutsu No Index/To Aru Majutsu No Index II/Ovas",
-		fileName: "To Aru Majutsu No Index III",
-		url_array: ["https://dondon.media/wp-content/uploads/2022/04/episodes-akame-ga-kill.jpg"],
+		directory: "Bakuman!",
+		fileName: "Bakuman!",
+		url_array: [],
 	},
 ]
 
@@ -48,7 +73,7 @@ function downloadFile({ files }, callback) {
 		const total = len / 1048576
 
 		if (total == "0.00" || isNaN(total)) {
-			if (retries < 3) {
+			if (retries < 5) {
 				retries++
 
 				console.log(files.fileName + " - Retry Nº " + retries)
@@ -111,7 +136,7 @@ function downloadFile({ files }, callback) {
 
 		console.error("There was an error doing the request...")
 
-		if (retries < 3) {
+		if (retries < 5) {
 			retries++
 
 			console.log(files.fileName + " - Retry Nº " + retries)
