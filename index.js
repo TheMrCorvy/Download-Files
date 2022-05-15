@@ -11,16 +11,18 @@ const files = [
 		directory: "To Aru Majutsu No Index/To Aru Majutsu No Index II",
 		fileName: "To Aru Majutsu No Index III",
 		url_array: ["https://dondon.media/wp-content/uploads/2022/04/episodes-akame-ga-kill.jpg"],
+		format: "jpg",
 	},
 	{
 		directory: "To Aru Majutsu No Index/To Aru Majutsu No Index II/Ovas",
 		fileName: "To Aru Majutsu No Index III",
 		url_array: ["https://dondon.media/wp-content/uploads/2022/04/episodes-akame-ga-kill.jpg"],
+		format: "jpg",
 	},
 ]
 
 function formatFileName({ path, index, fileName, format }) {
-	//	   path of file		numer of file in array			video 1     mp4
+	//path of the file		numer of file in array			video 1     mp4
 	return `${path}/${index < 10 ? "0" + index : index} - ${fileName}.${format}`
 }
 
@@ -49,6 +51,13 @@ function downloadFile({ files, index, format, callback }) {
 		const fileStream = fs.createWriteStream(
 			formatFileName({ path: files.directory, index, fileName: files.fileName, format })
 		)
+
+		fileStream.on("error", (err) => {
+			console.log(err)
+
+			console.log("There was an error writting the file...")
+		})
+
 		res.pipe(fileStream)
 
 		fileStream.on("finish", () => {
@@ -58,4 +67,4 @@ function downloadFile({ files, index, format, callback }) {
 	})
 }
 
-downloadFile({ files: files[1], index: 1, format: "jpg" })
+downloadFile({ files: files[1], index: 1, format: files[1].format })
