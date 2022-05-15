@@ -9,43 +9,24 @@ let urlIndex = 0
 const fileArrayForDownload = [
 	{
 		directory: "Akame Ga Kill",
-		fileName: "Akame Ga Kill",
+		file_name: "Akame Ga Kill",
+		containing_page: "",
+		format: "mp4",
 		url_array: [
 			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_01[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_02[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_03[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_04[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_05[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_06[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_07[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_08[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_09[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_10[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_11[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_12[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_13[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_14[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_15[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_16[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_17[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_18[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_19[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_20[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_21[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_22[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_23[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_24[FINAL][HD][X264-AAC][1280X720][Sub_Esp].mp4",
 		],
 	},
 	{
-		directory: "Bakuman!",
-		fileName: "Bakuman!",
+		directory: "Bakuman!/Bakuman! I",
+		file_name: "Bakuman!",
+		containing_page: "",
+		format: "mp4",
 		url_array: [],
 	},
 ]
 
-function formatFileName({ path, i, fileName }) {
-	return `${path}/${i < 10 ? "0" + i : i} - ${fileName}.jpg`
+function formatFileName({ path, i, fileName, format }) {
+	return `${path}/${i < 10 ? "0" + i : i} - ${fileName}.${format}`
 }
 
 function createDirectory(directory) {
@@ -70,13 +51,13 @@ function downloadFile({ files }, callback) {
 	const req = https.get(files.url_array[urlIndex], (res) => {
 		const len = parseInt(res.headers["content-length"], 10)
 		let cur = ""
-		const total = len / 1048576
+		const total = len / 1048576 // amount of bytes in a mb
 
 		if (total == "0.00" || isNaN(total)) {
 			if (retries < 5) {
 				retries++
 
-				console.log(files.fileName + " - Retry Nº " + retries)
+				console.log(files.file_name + " - Retry Nº " + retries)
 
 				return downloadFile({ files }, callback)
 			} else {
@@ -96,7 +77,8 @@ function downloadFile({ files }, callback) {
 			formatFileName({
 				path: files.directory,
 				i: urlIndex + 1,
-				fileName: files.fileName,
+				fileName: files.file_name,
+				format: files.format,
 			})
 		)
 
@@ -139,7 +121,7 @@ function downloadFile({ files }, callback) {
 		if (retries < 5) {
 			retries++
 
-			console.log(files.fileName + " - Retry Nº " + retries)
+			console.log(files.file_name + " - Retry Nº " + retries)
 
 			return downloadFile({ files }, callback)
 		} else {
