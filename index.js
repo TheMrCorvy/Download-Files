@@ -26,7 +26,7 @@ const fileArrayForDownload = [
 ]
 
 function formatFileName({ path, i, fileName, format }) {
-	return `${path}/${i < 10 ? "0" + i : i} - ${fileName}.${format}`
+	return `${path}/${i < 10 ? "0" + i : i} - ${fileName}.${format ? format : "mp4"}`
 }
 
 function createDirectory(directory) {
