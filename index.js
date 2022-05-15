@@ -21,7 +21,9 @@ const fileArrayForDownload = [
 		file_name: "Bakuman!",
 		containing_page: "",
 		format: "mp4",
-		url_array: [],
+		url_array: [
+			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_01[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+		],
 	},
 ]
 
@@ -138,12 +140,7 @@ function updateIndexes(i) {
 	if (i <= fileArrayForDownload[objectIndex].url_array.length - 1) {
 		urlIndex = i
 
-		downloadAll(
-			{
-				files: fileArrayForDownload[objectIndex],
-			},
-			updateIndexes
-		)
+		downloadAll()
 
 		return
 	} else {
@@ -155,12 +152,7 @@ function updateIndexes(i) {
 			objectIndex = objectIndex + 1
 			urlIndex = 0
 
-			downloadAll(
-				{
-					files: fileArrayForDownload[objectIndex],
-				},
-				updateIndexes
-			)
+			downloadAll()
 
 			return
 		}
