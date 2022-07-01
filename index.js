@@ -8,23 +8,14 @@ let urlIndex = 0
 
 const fileArrayForDownload = [
 	{
-		directory: "Akame Ga Kill",
-		file_name: "Akame Ga Kill",
+		directory: "carpeta de prueba",
+		file_name: "serie de prueba",
 		containing_page: "",
 		format: "mp4",
 		url_array: [
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_01[HD][X264-AAC][1280X720][Sub_Esp].mp4",
+			"https://donadeshinobu.art/ani2/F/Fate%20-%20Stay%20Night%20-%20Unlimited%20Blade%20Works%20BD/[HanF]%20Fate%20-%20Stay%20Night%20-%20Unlimited%20Blade%20Works%20-%2000%20(BDRip%201920x1080%20H264%20AAC).mp4",
 		],
-	},
-	{
-		directory: "Bakuman!/Bakuman! I",
-		file_name: "Bakuman!",
-		containing_page: "",
-		format: "mp4",
-		url_array: [
-			"https://descarga-directa.fukou-da.net/0:/Anime/A/Akame%20ga%20Kill!%20/[WZF]Akame_ga_Kill!_-_Capitulo_01[HD][X264-AAC][1280X720][Sub_Esp].mp4",
-		],
-	},
+	}
 ]
 
 function formatFileName({ path, i, fileName, format }) {
